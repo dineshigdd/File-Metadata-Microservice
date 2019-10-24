@@ -13,12 +13,12 @@ app.post('/api/fileanalyse', upload.single('upfile'), function (req, res, next) 
   
 })
  
-var cpUpload = upload.fields([{ name: 'upfile', maxCount: 1 }])
+var cpUpload = upload.fields([{ name: 'upfile'}])
 app.post('/cool-profile', cpUpload, function (req, res, next) {
   // req.files is an object (String -> Array) where fieldname is the key, and the value is array of files
   //
   // e.g.
-   req.files['upfile'][0]
+   console.log(req.files['upfile'][0])
   //  req.files['gallery'] -> Array
   //
   // req.body will contain the text fields, if there were any
