@@ -6,6 +6,7 @@ var multer = require('multer');
 // require and use "multer"...
 
 var app = express();
+app.post('/api/fileanalyse')
 
 app.use(cors());
 app.use('/public', express.static(process.cwd() + '/public'));
