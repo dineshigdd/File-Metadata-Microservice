@@ -10,21 +10,9 @@ var app = express();
 var fileUpload;
 
 app.post('/api/fileanalyse', upload.single('upfile'), function (req, res, next) {
-   res.json({ name: req.file.originalname , type:mimetype)
+   res.json({ name: req.file.originalname , type:req.file.mimetype, size:req.file.size })
 })
- 
 
-
-// var cpUpload = upload.fields([{ name: 'upfile'}])
-// app.post('/cool-profile', cpUpload, function (req, res, next) {
-//   // req.files is an object (String -> Array) where fieldname is the key, and the value is array of files
-//   //
-//   // e.g.
-//    console.log(req.files['upfile'][0])
-//   //  req.files['gallery'] -> Array
-//   //
-//   // req.body will contain the text fields, if there were any
-// })
 
 app.use(cors());
 app.use('/public', express.static(process.cwd() + '/public'));
